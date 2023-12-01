@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Björn Peter</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png"/>
+    <!-- swiper css -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+
+    <!-- box icons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .coming_soon{
+        background-color: lightsteelblue;
+      }
+      .coming-soon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+      }
+
+      .coming-soon h1 {
+        font-size: 5.6rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+      }
+
+      .coming-soon h3 {
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: 0.3;
+      }
+
+      .coming-soon p {
+        margin-bottom: 40px;
+      }
+
+      #countdown {
+        margin-top: 25px;;
+        margin-bottom: 20px;
+        font-size: 2.2rem;
+        font-weight: 600;
+        line-height: 0.3;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- header design -->
+    <header class="header">
+      <a href="#" class="logo">Portfolio.</a>
+
+      <nav class="navbar">
+        <a href="./index.html" class="active">Home</a>
+      </nav>
+
+      <div class="bx bx-moon" id="darkMode-icon"></div>
+
+      <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+
+    <!-- home section design -->
+    <section class="coming_soon" id="coming_soon">
+      <div class="coming-soon">
+        <h1>Coming Soon</h1>
+        <h3>Dieser Content erscheint in</h3>
+
+        <div id="countdown"></div>
+      </div>
+    </section>
+
+    <!-- contact section design -->
+    <section class="contact" id="contact">
+      <h2 class="heading">Contact <span>Me!</span></h2>
+
+      <form action="#">
+        <div class="input-box">
+          <input type="text" placeholder="Vor- u. Nachname" />
+          <input type="email" placeholder="E-Mail Addresse" />
+        </div>
+        <div class="input-box">
+          <input type="number" placeholder="Telefonnummer" />
+          <input type="text" placeholder="E-Mail Betreff" />
+        </div>
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Deine Nachricht"
+        ></textarea>
+        <input type="submit" value="Send Message" class="btn" />
+      </form>
+    </section>
+
+    <!-- footer design -->
+    <footer class="footer">
+      <div class="footer-text">
+        <p>Copyright &copy; 2023 | All Rights Reserved.</p>
+        <a href="./impressum.html"
+          ><i class="bx bx-link-external"></i>Impressum</a
+        >
+        <a href="./datenschutzerklärung.html"
+          ><i class="bx bx-link-external"></i>Datenschutzerklärung</a
+        >
+      </div>
+
+      <div class="footer-iconTop">
+        <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+      </div>
+    </footer>
+
+    <!-- scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- swiper js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- custom js -->
+    <script src="js/script.js"></script>
+    <script>
+      // Set the date we're counting down to
+      const countDownDate = new Date("Dec 31, 2023 00:00:00").getTime();
+
+      // Update the countdown every 1 second
+      const x = setInterval(function () {
+        // Get the current date and time
+        const now = new Date().getTime();
+
+        // Calculate the remaining time
+        const distance = countDownDate - now;
+
+        // Calculate days, hours, minutes, and seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the countdown
+        document.getElementById(
+          "countdown"
+        ).innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        // If the countdown is over, display a message
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
